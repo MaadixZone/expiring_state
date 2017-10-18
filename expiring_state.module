@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains expiring_state.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function expiring_state_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the expiring_state module.
+    case 'help.page.expiring_state':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds expiring state and replaced state to disable expired orders') . '</p>';
+      return $output;
+
+    default:
+  }
+}

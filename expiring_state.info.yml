@@ -1,0 +1,7 @@
+name: Expiring state
+type: module
+description: Adds expiring state to disable expired orders
+core: 8.x
+package: Custom
+dependencies:
+  - commerce_order

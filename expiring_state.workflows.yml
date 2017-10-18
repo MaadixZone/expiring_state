@@ -1,0 +1,38 @@
+order_default_validation_expiry:
+  id: order_default_validation_expiry
+  group: commerce_order
+  label: 'Default, with validation, and expiry'
+  states:
+    draft:
+      label: Draft
+    validation:
+      label: Validation
+    completed:
+      label: Completed
+    canceled:
+      label: Canceled
+    expired:
+      label: Expired
+    replaced:
+      label: Replaced
+  transitions:
+    place:
+      label: 'Place order'
+      from: [draft]
+      to:   validation
+    validate:
+      label: 'Validate order'
+      from: [validation]
+      to: completed
+    cancel:
+      label: 'Cancel order'
+      from: [draft, validation]
+      to:   canceled
+    expire:
+      label: 'Expire order'
+      from: [completed, validation, draft]
+      to:   expired
+    replace:
+      label: 'Replace order'
+      from: [completed]
+      to: replaced
